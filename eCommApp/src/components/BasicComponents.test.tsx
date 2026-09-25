@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import Header from './Header';
 import Footer from './Footer';
@@ -31,5 +32,16 @@ describe('HomePage', () => {
 
         expect(screen.getByRole('heading', { name: 'Welcome to the The Daily Harvest!' })).toBeInTheDocument();
         expect(screen.getByText('Check out our products page for some great deals.')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Contact Us' })).toBeInTheDocument();
+    });
+
+    it('opens the contact form from the home page', async () => {
+        const user = userEvent.setup();
+        render(<MemoryRouter><HomePage /></MemoryRouter>);
+
+        await user.click(screen.getByRole('button', { name: 'Contact Us' }));
+
+        expect(screen.getByRole('dialog', { name: 'Contact Us' })).toBeInTheDocument();
+        expect(screen.getByLabelText('Name')).toBeInTheDocument();
     });
 });
