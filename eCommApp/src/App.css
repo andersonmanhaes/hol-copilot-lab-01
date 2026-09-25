@@ -39,6 +39,24 @@
   transform: translateY(-2px);
 }
 
+.app-header nav button {
+  color: white;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.app-header nav button:hover,
+.app-header nav .nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
 .main-content {
   flex: 1;
   display: flex;

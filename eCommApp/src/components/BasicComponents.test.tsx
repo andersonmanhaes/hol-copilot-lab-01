@@ -14,7 +14,8 @@ describe('Header', () => {
         expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
         expect(screen.getByRole('link', { name: 'Products' })).toHaveAttribute('href', '/products');
         expect(screen.getByRole('link', { name: 'Cart' })).toHaveAttribute('href', '/cart');
-        expect(screen.getByRole('button', { name: 'Admin Login' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Contact Us' })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: 'Admin Login' })).toHaveAttribute('href', '/login');
     });
 });
 
@@ -32,10 +33,9 @@ describe('HomePage', () => {
 
         expect(screen.getByRole('heading', { name: 'Welcome to the The Daily Harvest!' })).toBeInTheDocument();
         expect(screen.getByText('Check out our products page for some great deals.')).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: 'Contact Us' })).toBeInTheDocument();
     });
 
-    it('opens the contact form from the home page', async () => {
+    it('opens the contact form from the header', async () => {
         const user = userEvent.setup();
         render(<MemoryRouter><HomePage /></MemoryRouter>);
 
