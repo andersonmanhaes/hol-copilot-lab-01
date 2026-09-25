@@ -13,8 +13,8 @@ const Header = () => {
                     <Link to="/">Home</Link>
                     <Link to="/products">Products</Link>
                     <Link to="/cart">Cart</Link>
-                    <button type="button" onClick={() => setIsContactOpen(true)}>Contact Us</button>
                     <Link to="/login" className="nav-button">Admin Login</Link>
+                    <button type="button" onClick={() => setIsContactOpen(true)}>Contact Us</button>
                 </nav>
             </header>
             {isContactOpen && <ContactModal onClose={() => setIsContactOpen(false)} />}

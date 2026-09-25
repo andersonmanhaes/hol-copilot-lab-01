@@ -16,6 +16,15 @@ describe('Header', () => {
         expect(screen.getByRole('link', { name: 'Cart' })).toHaveAttribute('href', '/cart');
         expect(screen.getByRole('button', { name: 'Contact Us' })).toBeInTheDocument();
         expect(screen.getByRole('link', { name: 'Admin Login' })).toHaveAttribute('href', '/login');
+
+        const navigation = screen.getByRole('navigation');
+        expect(Array.from(navigation.children).map(child => child.textContent)).toEqual([
+            'Home',
+            'Products',
+            'Cart',
+            'Admin Login',
+            'Contact Us'
+        ]);
     });
 });
 
